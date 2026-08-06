@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Page</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: black;
+      color: white;
+      font-family: system-ui, sans-serif;
+    }
+    .card {
+      padding: 24px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 0 24px rgba(255,255,255,0.08);
+    }
+    .card h1 {
+      margin-top: 0;
+      font-size: 1.9rem;
+    }
+    .card p {
+      line-height: 1.6;
+      margin: 0.75rem 0;
+    }
+    .card button {
+      margin-top: 16px;
+      padding: 12px 18px;
+      border: 1px solid #666;
+      background: #111;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background: #222;
+    }
+  </style>
+  <script>
+    const userInfo = {
+      name: 'Shubh kamle',
+      role: 'Student',
+      city: 'Nagpur'
+    };
+
+    console.log('Internal script loaded.');
+    console.info('User data is ready to display.');
+
+    function showWelcome() {
+      const welcome = document.getElementById('welcomeMessage');
+      welcome.textContent = `Hello ${userInfo.name}! Welcome to your dark-themed profile page.`;
+      console.log('showWelcome() executed.');
+      console.warn('This page uses inline, internal, and external JavaScript for demo purposes.');
+    }
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1 id="welcomeMessage">Welcome!</h1>
+    <p id="userInfo"></p>
+    <button type="button" onclick="updateInfo()">Update Info (inline JS)</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
