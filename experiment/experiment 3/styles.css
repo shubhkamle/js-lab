@@ -1,0 +1,39 @@
+:root{
+  --bg:#000;
+  --card:#0b0b0b;
+  --text:#eaeaea;
+  --muted:#bdbdbd;
+  --accent:#00d1b2;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.container{
+  width:360px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+h1{margin:0 0 12px 0;font-size:18px;text-align:center}
+.field{display:block;margin-bottom:10px;font-size:13px;color:var(--muted)}
+.field input{width:100%;margin-top:6px;padding:8px 10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);border-radius:6px}
+.marks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.marks .field{font-size:12px}
+.actions{display:flex;gap:8px;margin-top:12px}
+button{flex:1;padding:10px;border-radius:6px;border:none;cursor:pointer;font-weight:600}
+button[type="submit"]{background:var(--accent);color:#02120f}
+#resetBtn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.error{color:#ff6b6b;margin-top:10px;font-size:13px}
+.result{margin-top:12px;padding:10px;border-radius:6px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);font-size:14px}
+
+@media (max-width:400px){.container{width:92%}.marks{grid-template-columns:1fr}}
