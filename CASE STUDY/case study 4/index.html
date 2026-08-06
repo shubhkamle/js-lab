@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATM PIN Palindrome Check</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #40e0d0;
+      color: #033d4b;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 24px;
+      width: 320px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    label,
+    p {
+      margin: 12px 0 8px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #028d8f;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #028d8f;
+      color: white;
+    }
+    .message {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .message.success {
+      background: #d5f8f4;
+      color: #0d6b67;
+    }
+    .message.warning {
+      background: #ffe6c2;
+      color: #7a4b00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ATM PIN Palindrome Check</h1>
+    <label for="pinInput">Enter 4-digit PIN</label>
+    <input id="pinInput" type="password" maxlength="6" placeholder="e.g. 1221" />
+    <button id="checkButton">Verify PIN</button>
+    <div id="result" class="message" style="display:none"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
