@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Shopping Bill</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Online Shopping Billing Page</h1>
+    <p class="subtitle">Simple bill calculator for your grocery order</p>
+
+    <form id="billForm">
+      <div class="grid">
+        <label>Customer Name
+          <input type="text" id="customerName" placeholder="Enter customer name" required />
+        </label>
+
+        <label>Mobile No.
+          <input type="tel" id="mobileNo" placeholder="Enter mobile number" required />
+        </label>
+
+        <label>Invoice No.
+          <input type="text" id="invoiceNo" placeholder="Enter invoice number" required />
+        </label>
+
+        <label>Discount (%)
+          <input type="number" id="discount" min="0" max="100" step="0.01" value="0" />
+        </label>
+
+        <label>GST (%)
+          <input type="number" id="gst" min="0" max="100" step="0.01" value="5" />
+        </label>
+
+        <label>Packing Charges
+          <input type="number" id="packing" min="0" step="0.01" value="0" />
+        </label>
+
+        <label>Payment Mode
+          <select id="paymentMode">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="UPI">UPI</option>
+          </select>
+        </label>
+
+        <label>Membership
+          <select id="membership">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="items-section">
+        <h3>Items</h3>
+        <datalist id="productOptions">
+          <option value="Rice"></option>
+          <option value="Wheat"></option>
+          <option value="Sugar"></option>
+          <option value="Oil"></option>
+          <option value="Flour"></option>
+          <option value="Tea"></option>
+        </datalist>
+
+        <div id="itemsContainer">
+          <div class="item-row">
+            <label>Product Name
+              <input type="text" class="productName" list="productOptions" placeholder="Enter product name" required />
+            </label>
+            <label>Quantity (kg)
+              <input type="number" class="quantity" min="0" step="0.1" required />
+            </label>
+            <label>Rate per kg
+              <input type="number" class="rate" min="0" step="0.01" required />
+            </label>
+            <button type="button" class="remove-btn" onclick="removeItem(this)">Remove</button>
+          </div>
+        </div>
+
+        <button type="button" id="addItemBtn">Add Item</button>
+      </div>
+
+      <button type="button" onclick="calculateBill()">Calculate Bill</button>
+    </form>
+
+    <div id="billResult" class="result-box">
+      <h2>Bill Summary</h2>
+      <p><strong>Customer:</strong> <span id="resultCustomer">-</span></p>
+      <p><strong>Mobile:</strong> <span id="resultMobile">-</span></p>
+      <p><strong>Invoice No:</strong> <span id="resultInvoice">-</span></p>
+      <p><strong>Items:</strong></p>
+      <ul id="resultItems"></ul>
+      <p><strong>Discount:</strong> ₹<span id="resultDiscount">-</span></p>
+      <p><strong>GST:</strong> ₹<span id="resultGst">-</span></p>
+      <p><strong>Packing Charges:</strong> ₹<span id="resultPacking">-</span></p>
+      <p><strong>Payment Mode:</strong> <span id="resultPayment">-</span></p>
+      <p><strong>Membership:</strong> <span id="resultMembership">-</span></p>
+      <h3>Total Amount: ₹<span id="resultTotal">0.00</span></h3>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('addItemBtn').addEventListener('click', addItemRow);
+
+    function addItemRow() {
+      const container = document.getElementById('itemsContainer');
+      const row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <label>Product Name
+          <input type="text" class="productName" list="productOptions" placeholder="Enter product name" required />
+        </label>
+        <label>Quantity (kg)
+          <input type="number" class="quantity" min="0" step="0.1" required />
+        </label>
+        <label>Rate per kg
+          <input type="number" class="rate" min="0" step="0.01" required />
+        </label>
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Remove</button>
+      `;
+      container.appendChild(row);
+    }
+
+    function removeItem(button) {
+      const row = button.closest('.item-row');
+      if (row) {
+        row.remove();
+      }
+    }
+
+    function calculateBill() {
+      const rows = document.querySelectorAll('#itemsContainer .item-row');
+      const discountPercent = parseFloat(document.getElementById('discount').value) || 0;
+      const gstPercent = parseFloat(document.getElementById('gst').value) || 0;
+      const packing = parseFloat(document.getElementById('packing').value) || 0;
+      let subtotal = 0;
+      let discountAmount = 0;
+      let gstAmount = 0;
+      const items = [];
+
+      rows.forEach((row) => {
+        const productName = row.querySelector('.productName').value.trim();
+        const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
+        const rate = parseFloat(row.querySelector('.rate').value) || 0;
+
+        if (!productName || quantity <= 0 || rate <= 0) {
+          return;
+        }
+
+        const baseAmount = quantity * rate;
+        const itemDiscount = (baseAmount * discountPercent) / 100;
+        const discountedAmount = baseAmount - itemDiscount;
+        const itemGst = (discountedAmount * gstPercent) / 100;
+
+        subtotal += discountedAmount;
+        discountAmount += itemDiscount;
+        gstAmount += itemGst;
+        items.push(`${productName} - ${quantity.toFixed(2)} kg × ₹${rate.toFixed(2)}`);
+      });
+
+      const totalAmount = subtotal + gstAmount + packing;
+
+      document.getElementById('resultCustomer').textContent = document.getElementById('customerName').value;
+      document.getElementById('resultMobile').textContent = document.getElementById('mobileNo').value;
+      document.getElementById('resultInvoice').textContent = document.getElementById('invoiceNo').value;
+      document.getElementById('resultItems').innerHTML = items.length
+        ? items.map(item => `<li>${item}</li>`).join('')
+        : '<li>No items added</li>';
+      document.getElementById('resultDiscount').textContent = discountAmount.toFixed(2);
+      document.getElementById('resultGst').textContent = gstAmount.toFixed(2);
+      document.getElementById('resultPacking').textContent = packing.toFixed(2);
+      document.getElementById('resultPayment').textContent = document.getElementById('paymentMode').value;
+      document.getElementById('resultMembership').textContent = document.getElementById('membership').value;
+      document.getElementById('resultTotal').textContent = totalAmount.toFixed(2);
+    }
+  </script>
+</body>
+</html>
