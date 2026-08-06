@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grading System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Grading System</h1>
+    <form id="gradesForm" novalidate>
+      <label class="field">Student name
+        <input type="text" id="studentName" placeholder="Optional: Enter student name">
+      </label>
+
+      <div class="marks">
+        <label class="field">Subject 1
+          <input type="number" class="mark" min="0" max="100" placeholder="0-100" required>
+        </label>
+        <label class="field">Subject 2
+          <input type="number" class="mark" min="0" max="100" placeholder="0-100" required>
+        </label>
+        <label class="field">Subject 3
+          <input type="number" class="mark" min="0" max="100" placeholder="0-100" required>
+        </label>
+        <label class="field">Subject 4
+          <input type="number" class="mark" min="0" max="100" placeholder="0-100" required>
+        </label>
+        <label class="field">Subject 5
+          <input type="number" class="mark" min="0" max="100" placeholder="0-100" required>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Calculate Grade</button>
+        <button type="button" id="resetBtn">Reset</button>
+      </div>
+
+      <div id="error" class="error" aria-live="polite"></div>
+      <div id="result" class="result" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
