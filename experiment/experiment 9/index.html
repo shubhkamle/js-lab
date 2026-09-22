@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preferences</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <p class="eyebrow">Settings</p>
+      <h1>Shubh's Preferences</h1>
+      <p class="intro">Shape your workspace to feel right. Your choices are saved automatically.</p>
+
+      <section class="preference-group" aria-labelledby="appearance-title">
+        <h2 id="appearance-title">Appearance</h2>
+        <label class="field" for="theme-select">
+          <span>Theme</span>
+          <select id="theme-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="system">System</option>
+          </select>
+        </label>
+        <label class="field" for="text-size-select">
+          <span>Text size</span>
+          <select id="text-size-select">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
+        <div class="field color-field">
+          <span>Accent color</span>
+          <div class="swatches" role="group" aria-label="Accent color">
+            <button class="swatch" type="button" data-accent="teal" aria-label="Teal accent"></button>
+            <button class="swatch" type="button" data-accent="coral" aria-label="Coral accent"></button>
+            <button class="swatch" type="button" data-accent="blue" aria-label="Blue accent"></button>
+            <button class="swatch" type="button" data-accent="gold" aria-label="Gold accent"></button>
+          </div>
+        </div>
+        <label class="toggle" for="compact-toggle">
+          <span>
+            <strong>Compact layout</strong>
+            <small>Only applies to this browser session.</small>
+          </span>
+          <input id="compact-toggle" type="checkbox" />
+        </label>
+        <label class="toggle" for="motion-toggle">
+          <span>
+            <strong>Reduce motion</strong>
+            <small>Keep transitions subtle and still.</small>
+          </span>
+          <input id="motion-toggle" type="checkbox" />
+        </label>
+      </section>
+
+      <p id="save-status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
