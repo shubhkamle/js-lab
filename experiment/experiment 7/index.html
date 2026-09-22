@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" aria-labelledby="page-title">
+    <header class="app-header">
+      <p class="eyebrow">Today</p>
+      <h1 id="page-title">To-do list</h1>
+      <p class="subtitle">Keep the next things clear and manageable.</p>
+    </header>
+    <form id="todo-form" class="todo-form">
+      <label class="sr-only" for="name-input">Enter name</label>
+      <input id="name-input" type="text" placeholder="Enter name" autocomplete="name" required>
+      <label class="sr-only" for="roll-input">Enter roll number</label>
+      <input id="roll-input" type="text" placeholder="Enter roll number" inputmode="numeric" required>
+      <label class="sr-only" for="todo-input">Add a task</label>
+      <input id="todo-input" type="text" placeholder="What needs doing?" autocomplete="off" required>
+      <button type="submit">Add task</button>
+    </form>
+    <section aria-labelledby="list-title">
+      <div class="list-heading"><h2 id="list-title">Tasks</h2><span id="task-count">0 tasks</span></div>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <p id="empty-state">No tasks yet. Add one above.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
