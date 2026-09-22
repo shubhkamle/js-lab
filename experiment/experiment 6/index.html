@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String & Regex Toolkit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <p class="eyebrow">JavaScript experiment</p>
+      <h1>String & Regex Toolkit</h1>
+      <p class="intro">Validate emails, extract useful data, and measure text with simple string functions and regular expressions.</p>
+    </header>
+
+    <section class="panel email-panel" aria-labelledby="email-title">
+      <div class="panel-heading">
+        <div>
+          <p class="section-label">01</p>
+          <h2 id="email-title">Email validation</h2>
+        </div>
+        <span id="email-status" class="status neutral">Waiting</span>
+      </div>
+      <div class="input-row">
+        <label class="sr-only" for="email-input">Email address</label>
+        <input id="email-input" type="email" placeholder="name@example.com" autocomplete="email">
+        <button id="validate-email" type="button">Validate</button>
+      </div>
+      <p id="email-message" class="helper">Enter an email address to check its format.</p>
+    </section>
+
+    <div class="tool-grid">
+      <section class="panel" aria-labelledby="extract-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">02</p>
+            <h2 id="extract-title">Data extraction</h2>
+          </div>
+          <span class="chip">Regex</span>
+        </div>
+        <label for="extract-input">Text to scan</label>
+        <textarea id="extract-input" rows="6" placeholder="Try: Contact ana@example.com or call +1 555-123-4567."></textarea>
+        <div class="result-list">
+          <div class="result-item"><span>Emails</span><strong id="email-results">None found</strong></div>
+          <div class="result-item"><span>Phone numbers</span><strong id="phone-results">None found</strong></div>
+          <div class="result-item"><span>URLs</span><strong id="url-results">None found</strong></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="analysis-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">03</p>
+            <h2 id="analysis-title">Text analysis</h2>
+          </div>
+          <span class="chip">Strings</span>
+        </div>
+        <label for="analysis-input">Text to analyze</label>
+        <textarea id="analysis-input" rows="6" placeholder="Type or paste text here..."></textarea>
+        <div class="stats-grid" aria-live="polite">
+          <div class="stat"><strong id="character-count">0</strong><span>Characters</span></div>
+          <div class="stat"><strong id="word-count">0</strong><span>Words</span></div>
+          <div class="stat"><strong id="line-count">0</strong><span>Lines</span></div>
+          <div class="stat"><strong id="sentence-count">0</strong><span>Sentences</span></div>
+        </div>
+        <p id="analysis-note" class="helper">Counts update as you type.</p>
+      </section>
+    </div>
+
+    <footer>Built with JavaScript string methods and regular expressions.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
