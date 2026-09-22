@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunday Market Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#">Sunday<span>Market</span></a>
+        <div class="order-note"><span class="status-dot"></span> Free delivery over ₹80</div>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">Your little collection</p>
+        <h1>Good things,<br /><em>gathered.</em></h1>
+        <p class="intro-copy">A few everyday favourites, ready when you are.</p>
+      </section>
+
+      <section class="shop-layout" aria-label="Shopping cart">
+        <div class="cart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Your cart</p>
+              <h2 id="cart-count">0 items</h2>
+            </div>
+            <button class="text-button" id="clear-cart" type="button">Clear all</button>
+          </div>
+          <div class="cart-list" id="cart-list"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <span class="empty-mark">+</span>
+            <h3>Your cart is taking a quiet moment.</h3>
+            <p>Add something lovely from the market below.</p>
+          </div>
+        </div>
+
+        <aside class="summary-card">
+          <div class="summary-top">
+            <p class="eyebrow">Order summary</p>
+            <span class="summary-icon">↗</span>
+          </div>
+          <div class="summary-lines">
+            <div><span>Subtotal</span><strong id="subtotal">₹0.00</strong></div>
+            <div><span>Discount <small id="discount-label">(none)</small></span><strong class="discount" id="discount">−₹0.00</strong></div>
+            <div><span>Delivery</span><strong id="delivery">₹4.00</strong></div>
+            <div><span>Tax <small>(8%)</small></span><strong id="tax">₹0.00</strong></div>
+          </div>
+          <div class="total-line"><span>Total</span><strong id="total">₹0.00</strong></div>
+          <form class="customer-form" id="customer-form">
+            <p class="form-title">Delivery details</p>
+            <label for="customer-name">Name</label>
+            <input id="customer-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
+            <label for="customer-email">Email</label>
+            <input id="customer-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            <label for="customer-phone">Phone number</label>
+            <input id="customer-phone" name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9]{10}" inputmode="numeric" autocomplete="tel" required />
+          </form>
+          <button class="checkout-button" id="checkout" type="button">Continue to checkout <span>→</span></button>
+          <p class="summary-footnote" id="savings-message">Spend ₹80 to unlock free delivery.</p>
+        </aside>
+      </section>
+
+      <section class="market-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Browse the market</p>
+            <h2>Pick your next favourite</h2>
+          </div>
+          <span class="item-count">06 objects</span>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
