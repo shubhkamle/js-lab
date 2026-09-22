@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeakFit Gym Admission</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="form-card" aria-labelledby="form-title">
+      <p class="eyebrow">PeakFit Gym</p>
+      <h1 id="form-title">Start your membership</h1>
+      <p class="intro">Tell us a little about yourself and we will prepare your first visit.</p>
+
+      <form id="admission-form" novalidate>
+        <div class="field-group">
+          <label for="full-name">Full name</label>
+          <input id="full-name" name="fullName" type="text" autocomplete="name" placeholder="Jordan Lee" required>
+          <small class="error" id="full-name-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field-group">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="10" step="1" placeholder="18" required>
+          <small class="error" id="age-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="jordan@example.com" required>
+          <small class="error" id="email-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field-group">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="9876543210" required>
+          <small class="error" id="phone-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field-group">
+          <label for="plan">Membership plan</label>
+          <select id="plan" name="plan" required>
+            <option value="">Choose a plan</option>
+            <option value="monthly">Monthly - $35</option>
+            <option value="annual">Annual - $320</option>
+            <option value="student">Student - $25</option>
+          </select>
+          <small class="error" id="plan-error" aria-live="polite"></small>
+        </div>
+
+        <label class="check-row" for="agreement">
+          <input id="agreement" name="agreement" type="checkbox" required>
+          <span>I agree to the gym's membership terms.</span>
+        </label>
+        <small class="error checkbox-error" id="agreement-error" aria-live="polite"></small>
+
+        <button type="submit">Submit application</button>
+        <p class="success" id="success-message" role="status" aria-live="polite"></p>
+        <div class="admission-summary" id="admission-summary" aria-live="polite" hidden></div>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
