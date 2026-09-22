@@ -1,0 +1,78 @@
+:root {
+  color: #202820;
+  background: #eef2ec;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+.page-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #eef2ec, #dce9df);
+}
+
+.form-card {
+  width: min(100%, 470px);
+  padding: 36px;
+  background: #fffdf8;
+  border: 1px solid #d5dfd3;
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(43, 64, 47, 0.12);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #47714d;
+  font: 700 0.78rem/1.2 Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 { margin: 0; font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.05; }
+.intro { margin: 12px 0 28px; color: #667067; line-height: 1.5; }
+
+.field-group { margin-bottom: 18px; }
+label { display: block; margin-bottom: 7px; font: 700 0.9rem Arial, sans-serif; }
+input:not([type="checkbox"]), select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #bec9bc;
+  border-radius: 4px;
+  color: #202820;
+  background: #fff;
+  font: 1rem Georgia, 'Times New Roman', serif;
+}
+input:focus, select:focus { outline: 3px solid #c8dfcb; border-color: #47714d; }
+.invalid { border-color: #ba4a3b !important; background: #fff8f6 !important; }
+.error { display: block; min-height: 17px; margin-top: 5px; color: #ba4a3b; font: 0.78rem Arial, sans-serif; }
+.check-row { display: flex; gap: 9px; align-items: flex-start; margin: 4px 0 0; font-weight: 400; line-height: 1.4; }
+.check-row input { margin-top: 3px; accent-color: #47714d; }
+.checkbox-error { margin: 4px 0 12px 25px; }
+button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 4px;
+  color: #fffdf8;
+  background: #315a39;
+  cursor: pointer;
+  font: 700 0.95rem Arial, sans-serif;
+}
+button:hover { background: #24482c; }
+.success { min-height: 20px; margin: 14px 0 0; color: #315a39; font: 700 0.9rem Arial, sans-serif; }
+.admission-summary { margin-top: 12px; padding: 14px; border-left: 4px solid #47714d; background: #eef5ed; font: 0.88rem/1.6 Arial, sans-serif; }
+.admission-summary h2 { margin: 0 0 6px; color: #315a39; font-size: 1rem; }
+.admission-summary p { margin: 0; }
+
+@media (max-width: 480px) {
+  .page-shell { padding: 12px; }
+  .form-card { padding: 26px 20px; }
+}
