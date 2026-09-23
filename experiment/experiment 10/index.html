@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Table Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <p class="eyebrow">JSON playground</p>
+      <h1>Shubh Kamle</h1>
+      <p class="intro">Load the same JSON with native <code>fetch()</code> or jQuery <code>$.getJSON()</code>, then browse the results in a table.</p>
+    </header>
+
+    <section class="controls" aria-label="Data loading options">
+      <div class="source-picker">
+        <label for="source-input">Students academic records</label>
+        <input id="source-input" type="text" value="data.json" aria-describedby="source-help">
+        <span id="source-help" class="help-text">Use a local JSON file or a public JSON URL.</span>
+      </div>
+      <div class="button-row">
+        <button id="fetch-button" class="button button-primary" type="button">Load with fetch()</button>
+        <button id="jquery-button" class="button button-secondary" type="button">Load with $.getJSON()</button>
+      </div>
+    </section>
+
+    <section class="status-bar" aria-live="polite">
+      <span id="status-dot" class="status-dot"></span>
+      <span id="status-message">Ready to load data.</span>
+    </section>
+
+    <section class="results-panel" aria-labelledby="results-heading">
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">Live results</p>
+          <h2 id="results-heading">Your data table</h2>
+        </div>
+        <span id="row-count" class="row-count">0 rows</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="table-head"></thead>
+          <tbody id="table-body">
+            <tr class="empty-row"><td colspan="1">Choose a loader to display your JSON data.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
