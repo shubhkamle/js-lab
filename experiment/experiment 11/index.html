@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Class Scheduler</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <p class="eyebrow">YOUR STUDY DAY</p>
+        <h1>Class Scheduler</h1>
+        <p class="subtitle">Plan your classes and keep an eye on what’s next.</p>
+        <div class="student-details" aria-label="Student information">
+          <strong>Shubh Kamle</strong>
+          <span>PRN: 24070521159</span>
+        </div>
+      </header>
+
+      <section class="countdown-card" aria-labelledby="countdown-title">
+        <div>
+          <p class="eyebrow eyebrow-light">UP NEXT</p>
+          <h2 id="countdown-title">No upcoming class</h2>
+          <p id="next-class-time" class="next-class-time">Add a class to start your countdown.</p>
+        </div>
+        <div id="countdown" class="countdown" aria-live="polite">
+          <div class="time-unit"><span id="days">00</span><small>days</small></div>
+          <div class="time-unit"><span id="hours">00</span><small>hours</small></div>
+          <div class="time-unit"><span id="minutes">00</span><small>mins</small></div>
+          <div class="time-unit"><span id="seconds">00</span><small>secs</small></div>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="add-class-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MAKE A PLAN</p>
+            <h2 id="add-class-title">Add a class</h2>
+          </div>
+        </div>
+        <form id="class-form" class="class-form">
+          <label>
+            Subject
+            <select id="subject" name="subject" required></select>
+          </label>
+          <label>
+            Date and time
+            <input id="start-at" name="startAt" type="datetime-local" required />
+          </label>
+          <button type="submit">Add class</button>
+        </form>
+        <p id="message" class="message" role="status"></p>
+      </section>
+
+      <section class="content-card schedule-card" aria-labelledby="schedule-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR TIMETABLE</p>
+            <h2 id="schedule-title">Scheduled classes</h2>
+          </div>
+          <span id="class-count" class="class-count">0 classes</span>
+        </div>
+        <ul id="class-list" class="class-list"></ul>
+        <p id="empty-state" class="empty-state">Your schedule is empty. Add your first class above.</p>
+      </section>
+      <footer>Classes are saved on this device.</footer>
+    </main>
+  </body>
+</html>
